@@ -15,10 +15,12 @@ public:
 	void setOwn(std::string);
 	void setReceiver(std::string);
 	void setMessage(std::string);
+	int resultCompFindUser;
 private:
 //	int number;//номер сообщения
 	std::string own;//владелец сообщения
 	std::string receiver;//получатель сообщения
 	std::string message;//сообщения
 	Messages* ptrMess;//указатель на сообщение;
+
 };

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+//const int maxMess = 100;
 using namespace std;
 class Log_pass {
 public:
@@ -11,7 +12,7 @@ public:
 	int addLogPass();//добавить логин и пароль
 	Log_pass* getPtrObject();
 	bool enterLogPass();
-
+	int showMessages();
 private:
 	Log_pass* ptrObject;// ”казатель на обьект
 	std::string login;//поле логина

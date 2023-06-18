@@ -17,10 +17,8 @@ int main()
 	Log_pass* lgPass = new Log_pass;  //вышел за границы 
 	sizePassLog = lgPass->addLogPass();//создание новошо пользователя
 	sizePassLog = lgPass->addLogPass();//создание новошо пользователя
-	lgPass->enterLogPass();
-	lgPass->enterLogPass();
-	lgPass->enterLogPass();
-	//if(lgPass->enterLogPass())
-	//	showMessages();
+	if(lgPass->enterLogPass())
+		lgPass->showMessages();
+	
 	return 0;
 }

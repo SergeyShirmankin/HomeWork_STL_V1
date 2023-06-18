@@ -9,6 +9,7 @@ class MapMess
 public:
 	MapMess();
 	int AddScore(int idNumber, Messages score);
+	void findMess();
 	//void DeleteScore(const string& name);
 	//void PrintScore(const string& name);
 private:
