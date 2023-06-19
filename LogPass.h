@@ -13,6 +13,8 @@ public:
 	Log_pass* getPtrObject();
 	bool enterLogPass();
 	int showMessages();
+	void printLogPass();
+
 private:
 	Log_pass* ptrObject;// ”казатель на обьект
 	std::string login;//поле логина

@@ -14,11 +14,20 @@ Log_pass::Log_pass()//конструктор по умолчанию
 {
 	int a = 1;
 }
+
+void Log_pass::printLogPass()
+{
+	cout << "----------------------------print -----------------------" << endl;
+	for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
+		cout << (*it).first << " : " << (*it).second << endl;
+	cout << endl;
+}
+
 int Log_pass::addLogPass()
 {
 	std::cout << " Введите логин нового пользователя: " << std::endl;
 	std::cout << ">> ";
-	std::cin >> login;//Вводим новый логин
+	std::cin >> login;//Вводим новый логин				  
 	auto it = _log_pass.find(login);
 	if (it != _log_pass.end())
 	{
@@ -32,8 +41,10 @@ int Log_pass::addLogPass()
 		std::cin >> password;
 		_log_pass.emplace(login, password);
 	}
+	       	countObject++;
 	return _log_pass.size();
 }
+
 
 bool Log_pass::enterLogPass()
 {
@@ -43,17 +54,54 @@ bool Log_pass::enterLogPass()
 	std::cout << " Введите логин нового пользователя: " << std::endl;
 	std::cout << ">> ";
 	std::cin >> _login;//Вводим новый логин
-	auto it = _log_pass.find(_login);
-	if (it != _log_pass.end())
-	{
-		std::cout << "Введите пароль\n";
-        std::cout << ">> ";
-        std::cin >> _password;
-		if (_password.compare(it->second) == 0)//проверка пароля
+	std::cout << "Введите пароль\n";
+	std::cout << ">> ";
+	std::cin >> _password;
+	int i = -1;
+	printLogPass();
+//	for (int i = 0; i < countObject; ++i)
+	for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
+	{ 
+	    i++;
+		//int resultLog = _login.compare(personsPtr[i]->getLog());
+//		int resultPass = _password.compare(personsPtr[i]->getPass());
+		if (!(_login.compare(it->first))&& !(_password.compare(it->first)))
+//		if (resultLog == 0 && resultPass == 0)
+       	{
+ 			curSesion = i;
+    		resultCompare = true;
 			return true;
+    	}
 	}
 		return false;	
 }
+
+//bool enterLogPass()
+//{
+//	bool resultCompare = false;
+//	std::string _password;
+//	std::string _login;
+//	std::cout << "Введите логин\n";
+//	std::cout << ">> ";
+//	std::cin >> _login;
+//	std::cout << "Введите пароль\n";
+//	std::cout << ">> ";
+//	std::cin >> _password;
+//	for (int i = 0; i < countObject; ++i)
+//	{
+//		int resultLog = _login.compare(personsPtr[i]->getLog());
+//		int resultPass = _password.compare(personsPtr[i]->getPass());
+//		if (resultLog == 0 && resultPass == 0)
+//		{
+//			curSesion = i;
+//			resultCompare = true;
+//			return true;
+//		}
+//	}
+//	std::cout << "Not access.\n ";
+//	return false;
+//
+//
 
 int Log_pass::showMessages()
 {
@@ -100,26 +148,26 @@ void MapMess::findMess() {
 }
 int MapMess::writeMess() 
 {
-			std::cout << "\nВыберите цифру получателя сообщения, для всеобщей рассылки выберите[9] ";
-	    	std::cout << "\n>> ";
-			std::cin >> tempReceiver;//Выбираем получателя
-	//		Поиск  нулeвой строки и запись в него строки 
-	     	if (tempReceiver.size() == 0) { return 1; }//защита от пустой строки
-			try
-			{
-				convIngTempRec = stoi(tempReceiver);//проверка на правильность приведения string в int
-	    	}
-			catch (std::invalid_argument e) {
-				std::cout << "\nВнимание, некорекный ввод\n";
-    			return 1;
-     		}
-			if (0 <= convIngTempRec && convIngTempRec <= maxPerson) {
-				for (int i = 0; i < maxMess; ++i)
-				{
-					if (!Null.compare(_messages[i].getOwn()))
-						
-					{
-						_messages[i].setOwn(_messages[curSesion].getLog());
+	//		std::cout << "\nВыберите цифру получателя сообщения, для всеобщей рассылки выберите[9] ";
+	//    	std::cout << "\n>> ";
+	//		std::cin >> tempReceiver;//Выбираем получателя
+	////		Поиск  нулeвой строки и запись в него строки 
+	//     	if (tempReceiver.size() == 0) { return 1; }//защита от пустой строки
+	//		try
+	//		{
+	//			convIngTempRec = stoi(tempReceiver);//проверка на правильность приведения string в int
+	//    	}
+	//		catch (std::invalid_argument e) {
+	//			std::cout << "\nВнимание, некорекный ввод\n";
+ //   			return 1;
+ //    		}
+	//		if (0 <= convIngTempRec && convIngTempRec <= maxPerson) {
+	//			for (int i = 0; i < maxMess; ++i)
+	//			{
+	//				if (!Null.compare(_messages[i].getOwn()))
+	//					
+	//				{
+	//					_messages[i].setOwn(_messages[curSesion].getLog());
 	//					messagesPtr[i]->setReceiver(personsPtr[convIngTempRec]->getLog());
 	//					std::cout << "\n" << messagesPtr[i]->getOwn() << "->" << messagesPtr[i]->getReceiver();
 	//					std::cout << ">> ";
@@ -132,6 +180,7 @@ int MapMess::writeMess()
 	//				}
 	//			}
 	//		}
+	return 0;
 }
 //using namespace std;
 //
