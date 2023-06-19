@@ -59,53 +59,26 @@ bool Log_pass::enterLogPass()
 	std::cin >> _password;
 	int i = -1;
 	printLogPass();
-//	for (int i = 0; i < countObject; ++i)
 	for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
 	{ 
 	    i++;
-		//int resultLog = _login.compare(personsPtr[i]->getLog());
-//		int resultPass = _password.compare(personsPtr[i]->getPass());
 		if (!(_login.compare(it->first))&& !(_password.compare(it->first)))
-//		if (resultLog == 0 && resultPass == 0)
        	{
  			curSesion = i;
+			currUser = it->first;
     		resultCompare = true;
 			return true;
     	}
 	}
-		return false;	
+		return false;
+		std::cout << "Not access.\n ";
 }
 
-//bool enterLogPass()
-//{
-//	bool resultCompare = false;
-//	std::string _password;
-//	std::string _login;
-//	std::cout << "Введите логин\n";
-//	std::cout << ">> ";
-//	std::cin >> _login;
-//	std::cout << "Введите пароль\n";
-//	std::cout << ">> ";
-//	std::cin >> _password;
-//	for (int i = 0; i < countObject; ++i)
-//	{
-//		int resultLog = _login.compare(personsPtr[i]->getLog());
-//		int resultPass = _password.compare(personsPtr[i]->getPass());
-//		if (resultLog == 0 && resultPass == 0)
-//		{
-//			curSesion = i;
-//			resultCompare = true;
-//			return true;
-//		}
-//	}
-//	std::cout << "Not access.\n ";
-//	return false;
-//
-//
 
 int Log_pass::showMessages()
 {
 	char key;
+	int countUsers = -1;
 	system("cls");
 	while (true)
 	{
@@ -116,20 +89,19 @@ int Log_pass::showMessages()
 		else {
 			system("cls");
 			std::cout << "Online users: ";
-			int countUsers = 0;
 			for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
 			{
 				countUsers ++;
-				currUser  =  it->first;
+				cout << it->first << "[" << countUsers << "], " ;
 			}
-			cout << countUsers << endl;
-			
-			std::cout << "Hello " << countUsers << "\n";
-
+			cout << endl;			
+					std::cout << "\nStart Session[" << curSesion << "]:\n";
+					std::cout << "Hello " << currUser << "\n";		
 		}
 	}
 	return 0;
 }
+
 void MapMess::findMess() {
 	//		// Поиск и вывод строк
 			for (int i = 0; i < maxMess; ++i)
@@ -151,7 +123,7 @@ int MapMess::writeMess()
 	//		std::cout << "\nВыберите цифру получателя сообщения, для всеобщей рассылки выберите[9] ";
 	//    	std::cout << "\n>> ";
 	//		std::cin >> tempReceiver;//Выбираем получателя
-	////		Поиск  нулeвой строки и запись в него строки 
+	//		Поиск  нулeвой строки и запись в него строки 
 	//     	if (tempReceiver.size() == 0) { return 1; }//защита от пустой строки
 	//		try
 	//		{
