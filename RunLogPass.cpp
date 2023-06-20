@@ -5,8 +5,8 @@
 int createNullMap()// создание пустых сообщений
 {
 	int size;
-	MapMess* pSt = new MapMess;
-	MapMess& st = *pSt;
+	Log_pass* pSt = new Log_pass;
+	Log_pass& st = *pSt;
 	for (int i = 0; i < maxMess; ++i) {
 			Messages* pMess = new Messages;
 			Messages& mess = *pMess; //преобразование указателя в ссылку

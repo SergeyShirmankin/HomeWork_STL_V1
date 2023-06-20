@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include "Messages.h"
 //const int maxMess = 100;
 using namespace std;
 class Log_pass {
@@ -14,10 +15,15 @@ public:
 	bool enterLogPass();
 	int showMessages();
 	void printLogPass();
-
+//----------------------------------------------------------------------
+	int AddScore(int idNumber, Messages score);
+	void findMess();
+	int writeMess();
+//-----------------------------------------------------------------------
 private:
 	Log_pass* ptrObject;// ”казатель на обьект
 	std::string login;//поле логина
 	std::string password;// поле парол€
 	map<string,string> _log_pass;
+	map<int, Messages> _messages;
 };

@@ -5,17 +5,7 @@ MapMess::MapMess()
 {
 	int a = 0;
 }
-int MapMess::AddScore(int idNumber, Messages score)
-{
-	auto it = _messages.find(idNumber);
-	if (it != _messages.end())
-	{
-		score = it->second;
-	}
-	else
-		_messages.emplace(idNumber, score);
-	return _messages.size();
-}
+
 //void MapMess::AddScore(int idNumber, Messages score)
 //{
 //	auto it = _messages.find(idNumber);

@@ -15,6 +15,19 @@ Log_pass::Log_pass()//конструктор по умолчанию
 	int a = 1;
 }
 
+int Log_pass::AddScore(int idNumber, Messages score)
+{
+	auto it = _messages.find(idNumber);
+	if (it != _messages.end())
+	{
+		score = it->second;
+	}
+	else
+		_messages.emplace(idNumber, score);
+	return _messages.size();
+}
+
+
 void Log_pass::printLogPass()
 {
 	cout << "----------------------------print -----------------------" << endl;
@@ -102,7 +115,7 @@ int Log_pass::showMessages()
 	return 0;
 }
 
-void MapMess::findMess() {
+void Log_pass::findMess() {
 	//		// Поиск и вывод строк
 			for (int i = 0; i < maxMess; ++i)
 			{
@@ -118,39 +131,51 @@ void MapMess::findMess() {
 				}
 			}
 }
-int MapMess::writeMess() 
+int Log_pass::writeMess() 
 {
-	//		std::cout << "\nВыберите цифру получателя сообщения, для всеобщей рассылки выберите[9] ";
+	//		std::cout << "\nВыберите  получателя сообщения";
 	//    	std::cout << "\n>> ";
-	//		std::cin >> tempReceiver;//Выбираем получателя
-	//		Поиск  нулeвой строки и запись в него строки 
-	//     	if (tempReceiver.size() == 0) { return 1; }//защита от пустой строки
-	//		try
-	//		{
-	//			convIngTempRec = stoi(tempReceiver);//проверка на правильность приведения string в int
-	//    	}
-	//		catch (std::invalid_argument e) {
-	//			std::cout << "\nВнимание, некорекный ввод\n";
- //   			return 1;
- //    		}
-	//		if (0 <= convIngTempRec && convIngTempRec <= maxPerson) {
-	//			for (int i = 0; i < maxMess; ++i)
-	//			{
-	//				if (!Null.compare(_messages[i].getOwn()))
-	//					
-	//				{
-	//					_messages[i].setOwn(_messages[curSesion].getLog());
-	//					messagesPtr[i]->setReceiver(personsPtr[convIngTempRec]->getLog());
-	//					std::cout << "\n" << messagesPtr[i]->getOwn() << "->" << messagesPtr[i]->getReceiver();
-	//					std::cout << ">> ";
-	//					std::getline(std::cin >> tempCin, tempMessage);//забираем всю строку
-	//					tempMessage = tempCin + " " + tempMessage;
-	//					if (tempMessage.size() == 0) { break; }
-	//					messagesPtr[i]->setMessage(tempMessage);
-	//					break;
+	//    	std::cin >> tempReceiver;//Выбираем получателя
+	////		Поиск  нулeвой строки и запись в него строки 
+	//    	if (tempReceiver.size() == 0) { return 1; }//защита от пустой строки
+	////		try
+	////		{
+	////			convIngTempRec = stoi(tempReceiver);//проверка на правильность приведения string в int
+	////    	}
+	////		catch (std::invalid_argument e) {
+	////			std::cout << "\nВнимание, некорекный ввод\n";
+ ////   			return 1;
+ ////    		}
 
-	//				}
+	//		for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
+	//		{
+
+	//			if (!(_login.compare(it->first)) && !(_password.compare(it->first)))
+	//			{
+	//				curSesion = i;
+	//				currUser = it->first;
+	//				resultCompare = true;
+	//				return true;
 	//			}
+	//		}
+	////		if (0 <= convIngTempRec && convIngTempRec <= maxPerson) {
+	//			for (int i = 0; i < maxMess; ++i)
+	//		{
+	//			if (!Null.compare(_messages[i].getOwn()))
+	//				
+	//			{
+	////					_messages[i].setOwn(_messages[curSesion].getLog());
+	////					messagesPtr[i]->setReceiver(personsPtr[convIngTempRec]->getLog());
+	////					std::cout << "\n" << messagesPtr[i]->getOwn() << "->" << messagesPtr[i]->getReceiver();
+	////					std::cout << ">> ";
+	////					std::getline(std::cin >> tempCin, tempMessage);//забираем всю строку
+	////					tempMessage = tempCin + " " + tempMessage;
+	////					if (tempMessage.size() == 0) { break; }
+	////					messagesPtr[i]->setMessage(tempMessage);
+	////					break;
+
+	////				}
+	////			}
 	//		}
 	return 0;
 }

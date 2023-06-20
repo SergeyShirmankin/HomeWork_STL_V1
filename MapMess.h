@@ -8,11 +8,11 @@ class MapMess
 { 	
 public:
 	MapMess();
-	int AddScore(int idNumber, Messages score);
+	/*int AddScore(int idNumber, Messages score);
 	void findMess();
-	int writeMess();
+	int writeMess();*/
 	//void DeleteScore(const string& name);
 	//void PrintScore(const string& name);
 private:
-	map<int, Messages> _messages;
+	//map<int, Messages> _messages;
 };
