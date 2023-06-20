@@ -7,7 +7,6 @@ static int countMessage;
 class Messages {
 public:
 	Messages();
-//	int getNumber();
 	std::string getOwn();
 	std::string getReceiver();
 	std::string getMessage();
@@ -17,7 +16,6 @@ public:
 	void setMessage(std::string);
 	int resultCompFindUser;
 private:
-//	int number;//номер сообщения
 	std::string own;//владелец сообщения
 	std::string receiver;//получатель сообщения
 	std::string message;//сообщения

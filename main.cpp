@@ -1,3 +1,6 @@
+// Программа имеет ограничения: 3 пользователя но можно расширить
+// так же расчитана на 100 сообщений
+
 #include <iostream>
 #include <map>
 #include <Windows.h>
@@ -19,7 +22,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	sizeMap=createNullMap();//создание пустых сообщений в Map
-	Log_pass* lgPass = new Log_pass;  //вышел за границы 
+	Log_pass* lgPass = new Log_pass; // Создаем обьект логина и пароля
 //----------------------------------------------------------------------
 	while (true) {
 		//	std::cout << "Press key:'q'-quit, 'n'-create , 'd'-delete , 'e'-enter , 's'- show\n";
@@ -32,30 +35,16 @@ int main()
 			op = &chars[0];
 
 			if (*op == 'в') {
-//				deleteLogPass();
-//				deleteMess();
 				exit(0);
 			}
 			switch (*op) {
 			case'н':
 				sizePassLog = lgPass->addLogPass();
 				lgPass->printLogPass();
-				//createLogPass();
-				break;
-			case'd':
-//				deleteLogPass();
 				break;
 			case'л':
 				if (lgPass->enterLogPass())
 					lgPass->showMessages();
-				//if (enterLogPass())
-				//{
-				//	//setlocale(LC_ALL, "");//кирилица
-				//	showMessages();
-				//}
-				break;
-			case's':
-//				showLogPass();
 				break;
 			defalt:
 				std::cout << "Неправильно выбрали букву";

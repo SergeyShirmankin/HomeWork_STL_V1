@@ -13,7 +13,7 @@ public:
 	int addLogPass();//добавить логин и пароль
 	Log_pass* getPtrObject();
 	bool enterLogPass();
-	int showMessages();
+	void showMessages();
 	void printLogPass();
 //----------------------------------------------------------------------
 	int AddScore(int idNumber, Messages score);

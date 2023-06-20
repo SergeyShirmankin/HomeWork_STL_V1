@@ -3,7 +3,6 @@ const int maxPerson = 3;//максимальное количество людей которое можно работать в
 static int countObject;
 static int curSesion;//активная сессия
 const int maxMess = 100;//максимальное количество сообщений в чате
-//int createLogPass(int sizePass);
 void deleteLogPass();
 bool enterLogPass();
 void showLogPass();
