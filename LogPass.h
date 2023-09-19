@@ -3,11 +3,13 @@
 #include <string>
 #include <map>
 #include "Messages.h"
+#include "main.h"
 //const int maxMess = 100;
 using namespace std;
 class Log_pass {
 public:
 	Log_pass();// онструктор по умолчанию
+	~Log_pass();//деструктор 
 	std::string getLog();//геттеры
 	std::string getPass();
 	int addLogPass();//добавить логин и пароль
@@ -27,3 +29,4 @@ private:
 	map<string,string> _log_pass;
 	map<int, Messages> _messages;
 };
+

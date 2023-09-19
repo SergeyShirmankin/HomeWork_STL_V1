@@ -2,6 +2,7 @@
 #include "MapMess.h"
 #include "RunLogPass.h"
 #include <iostream>
+#include "main.h"
 std::string currUser = "Null";
 int resultCompFindUser;
 int resultCompFindReceiver;
@@ -11,9 +12,14 @@ std::string tempMessage;
 std::string tempCin;
 std::string Null = "Null";
 
+
 Log_pass::Log_pass()//конструктор по умолчанию
 {
 	int a = 1; // пустая операция, чтобы не было ошибок
+}
+Log_pass::~Log_pass()
+{
+	int b = 2;
 }
 
 int Log_pass::AddScore(int idNumber, Messages score)
@@ -27,16 +33,25 @@ int Log_pass::AddScore(int idNumber, Messages score)
 		_messages.emplace(idNumber, score);
 	return _messages.size();
 }
-
-// Функция для теста программы для проверки словаря
+//---------------------------------------------------------------------------------------
+//------------------------ Печать в файл текста сообщения--------------------------------
+//---------------------------------------------------------------------------------------
 void Log_pass::printLogPass()
 {
+	globalTextToFile = "";
 	cout << "----------------------------print -----------------------" << endl;
 	for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
+	{
+	    flagWrite = true;//Запуск функции записи в файл
+		globalTextToFile = (*it).first;
+		globalTextToFile = globalTextToFile + " : ";
+		globalTextToFile = globalTextToFile + (*it).second;
 		cout << (*it).first << " : " << (*it).second << endl;
+		//bool flagWrite = true ;//Запуск функции записи в файл
+	}
 	cout << endl;
 }
-// Создание логина и паррля
+//-------------------------- Создание логина и паррля--------------------------------------
 int Log_pass::addLogPass()
 {
 	std::cout << " Введите логин нового пользователя: " << std::endl;
@@ -76,7 +91,7 @@ bool Log_pass::enterLogPass()
 	for (auto it = _log_pass.begin(); it != _log_pass.end(); ++it)
 	{ 
 	    i++;
-		if (!(_login.compare(it->first))&& !(_password.compare(it->first)))
+		if (!(_login.compare(it->first))&& !(_password.compare(it->second)))
        	{
  			curSesion = i;
 			currUser = it->first;
